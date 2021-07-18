@@ -35,8 +35,8 @@ public class SearchProductStep {
         home.clickOnSearchBtn();
     }
 
-    @Then("the {string} is displayed on the list")
-    public void the_product_is_displayed_on_the_list(String string) {
+    @Then("the results are displayed on the list")
+    public void the_results_are_displayed_on_the_list() {
         resultProduct = new ResultProductPage(this.driver);
         Assert.assertTrue(resultProduct.getH1Text().contains("SHORT"));
         Assert.assertTrue(resultProduct.getProductListSize() >0,"There are not shorts displayed");

@@ -6,15 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class HomePage extends BasePage {
-
-    @FindBy(how= How.CSS,using=".login")
+    @FindBy(how = How.XPATH, using = "//a[text()='SIGN-ON']")
     private WebElement signButton;
-
-    @FindBy(how= How.NAME,using="search_query")
-    private WebElement searchBar;
-
-    @FindBy(how= How.NAME,using="submit_search")
-    private WebElement searchBtn;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -24,11 +17,4 @@ public class HomePage extends BasePage {
         click(signButton);
     }
 
-    public void completeSearchBar(String productName){
-        completeInformation(searchBar,productName);
-    }
-
-    public void clickOnSearchBtn(){
-        click(searchBtn);
-    }
 }

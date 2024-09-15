@@ -41,6 +41,7 @@ public class BasePage {
         getWait().until(ExpectedConditions.visibilityOf(closePopupBtn));
         click(closePopupBtn);
         driver.switchTo().defaultContent();
+
     }
 
     public void click(WebElement element) {

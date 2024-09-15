@@ -1,6 +1,5 @@
 package utils;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -19,7 +18,6 @@ public class Driver {
         if (driver.get() == null) {
             switch (browser) {
                 case "Firefox":
-                    WebDriverManager.firefoxdriver().setup();
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
 
                     if (Boolean.valueOf(headlessMode)) {
@@ -33,7 +31,6 @@ public class Driver {
                     break;
 
                 case "chrome":
-                    WebDriverManager.chromedriver().setup();
                     ChromeOptions chromeOptions = new ChromeOptions();
 
                     if (Boolean.valueOf(headlessMode)) {

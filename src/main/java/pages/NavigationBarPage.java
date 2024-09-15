@@ -13,7 +13,7 @@ public class NavigationBarPage extends BasePage {
     public void selectOption(String option) {
         WebElement e = getDriver().findElement(By.xpath("//a[text()='" + option + "']"));
         click(e);
-        closePopup();
+        //closePopup();
     }
 
 }

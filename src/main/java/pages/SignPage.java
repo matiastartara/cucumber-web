@@ -22,7 +22,7 @@ public class SignPage extends BasePage {
     }
 
     public void login(String username, String password) {
-        closePopup();
+        //closePopup();
         type(this.username, username);
         type(this.passwd, password);
         click(submitButton);

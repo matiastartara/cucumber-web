@@ -1,29 +1,112 @@
-**Prerequisites**
+# Cucumber Web Automation Framework
 
-Java 11 installed
+A comprehensive test automation framework built with Cucumber and Selenium for testing web applications. This project uses BDD (Behavior-Driven Development) approach to write and execute automated tests.
 
-Intellij Idea + TestNG plugin + Cucumber for java plugin
+## 📋 Table of Contents
 
-Google Chrome and Firefox browsers
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Project Structure](#project-structure)
+- [Test Execution](#test-execution)
+- [Viewing Test Reports](#viewing-test-reports)
+- [Technologies Used](#technologies-used)
 
+## Prerequisites
 
-**Installation**
+Before you begin, ensure you have the following installed on your system:
 
-1-Clone repository
+- **Java 17** or higher
+- **Maven 3.6+** for dependency management
+- **Google Chrome** and/or **Firefox** browsers
+- **IntelliJ IDEA** (or similar IDE) with the following plugins:
+  - TestNG plugin
+  - Cucumber for Java plugin
 
-2-Open project and import maven dependencies. Webdrivermanager helps to
-download executables automatically.
+## Installation
 
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd cucumber-web
+   ```
 
-**Test Execution**
+2. **Open the project in IntelliJ IDEA**
+   - Open IntelliJ IDEA and select "Open"
+   - Navigate to the project directory and click "OK"
 
-To run the tests select allTests.xml file under suite folder, right
-click and then click on run. To run using maven run mvn verify
+3. **Import Maven dependencies**
+   - Right-click on `pom.xml` → Maven → Reload project
+   - WebDriverManager automatically downloads and manages browser driver executables
 
-**Report**
+## Project Structure
 
-Report is saved as html format under
-target/cucumber-report-html/cucumber-html-reports/All.html folder if you
-run the tests using "maven verify" comand
+```
+cucumber-web/
+├── src/
+│   ├── main/java/
+│   │   ├── pages/              # Page Object Model classes
+│   │   │   ├── BasePage.java
+│   │   │   ├── HomePage.java
+│   │   │   ├── FlightPage.java
+│   │   │   ├── SignPage.java
+│   │   │   └── NavigationBarPage.java
+│   │   └── utils/              # Utilities and drivers
+│   │       └── Driver.java
+│   └── test/java/
+│       ├── steps/              # Step definitions
+│       │   ├── BaseStep.java
+│       │   ├── LoginStep.java
+│       │   └── SearchFlightStep.java
+│       ├── test/
+│       │   └── TestRunner.java
+│       └── resources/
+│           └── features/       # Feature files
+│               ├── Login.feature
+│               └── SearchFlight.feature
+└── pom.xml                     # Maven configuration
+```
 
-To see report using allTest.xml file check src/cucumberReport.html
+## Test Execution
+
+### Using IntelliJ IDEA
+1. Navigate to `src/test/java/suite/` folder
+2. Right-click on the desired test suite file (`allTests.xml`, `loginTest.xml`, or `searchFlightTest.xml`)
+3. Select **Run** to execute the tests
+
+### Using Maven
+```bash
+# Run all tests
+mvn verify
+
+# Run specific test suite (if configured)
+mvn test -Dsuite=allTests
+```
+
+## Viewing Test Reports
+
+### HTML Report via Maven
+After running tests with `mvn verify`, the detailed HTML report can be found at:
+```
+target/cucumber-report-html/cucumber-html-reports/All.html
+```
+
+### Using IntelliJ IDEA
+If you run tests directly from IntelliJ using `allTests.xml`, the report is generated at:
+```
+src/cucumberReport.html
+```
+
+## Technologies Used
+
+- **Java 17** - Programming language
+- **Selenium WebDriver** - Web automation tool
+- **Cucumber** - BDD framework
+- **TestNG** - Testing framework
+- **Maven** - Build and dependency management
+- **WebDriverManager** - Automated driver management
+
+## Notes
+
+- Ensure all browsers (Chrome and Firefox) are installed on your system
+- WebDriverManager handles driver executable downloads automatically
+- Feature files use Gherkin syntax for readable test scenarios

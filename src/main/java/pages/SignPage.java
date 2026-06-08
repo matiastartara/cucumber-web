@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class SignPage extends BasePage {
+
     @FindBy(name = "userName")
     private WebElement username;
 

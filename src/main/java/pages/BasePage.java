@@ -13,10 +13,13 @@ public class BasePage {
 
     @FindBy(id = "dismiss-button")
     private WebElement closePopupBtn;
+
     @FindBy(xpath = "//*[@id='google_ads_iframe_/24132379/INTERSTITIAL_DemoGuru99_0']")
     private WebElement iframe;
+
     @FindBy(name = "ad_iframe")
     private WebElement iframe2;
+
     private WebDriver driver;
     private WebDriverWait wait;
 
@@ -41,7 +44,6 @@ public class BasePage {
         getWait().until(ExpectedConditions.visibilityOf(closePopupBtn));
         click(closePopupBtn);
         driver.switchTo().defaultContent();
-
     }
 
     public void click(WebElement element) {

@@ -1,6 +1,6 @@
 # 🧪 Cucumber Web Automation Framework
 
-[![Java CI with Maven & Cucumber](https://github.com/<your-username>/<your-repo-name>/actions/workflows/maven.yml/badge.svg)](https://github.com/<your-username>/<your-repo-name>/actions/workflows/maven.yml)
+[![Java CI with Maven & Cucumber](https://github.com/matiastartara/cucumber-web/actions/workflows/maven.yml/badge.svg)](https://github.com/matiastartara/cucumber-web/actions/workflows/maven.yml)
 
 A modern, robust, and comprehensive test automation framework built with **Java**, **Cucumber (BDD)**, and **Selenium WebDriver** for end-to-end testing of web applications. 
 

@@ -1,112 +1,157 @@
-# Cucumber Web Automation Framework
+# 🧪 Cucumber Web Automation Framework
 
-A comprehensive test automation framework built with Cucumber and Selenium for testing web applications. This project uses BDD (Behavior-Driven Development) approach to write and execute automated tests.
+[![Java CI with Maven & Cucumber](https://github.com/<your-username>/<your-repo-name>/actions/workflows/maven.yml/badge.svg)](https://github.com/<your-username>/<your-repo-name>/actions/workflows/maven.yml)
+
+A modern, robust, and comprehensive test automation framework built with **Java**, **Cucumber (BDD)**, and **Selenium WebDriver** for end-to-end testing of web applications. 
+
+This repository is designed using the **Page Object Model (POM)** pattern to demonstrate clean, maintainable, and scalable automation code.
+
+---
+
+## 🎯 Target Application under Test
+
+The automated test suite is configured to test the following web application:
+*   **Target Website:** 🌐 [Guru99 NewTours Demo](https://demo.guru99.com/test/newtours/index.php)
+*   **Scope of Testing:**
+    *   🔐 **Authentication Flow:** End-to-end user sign-in validation.
+    *   ✈️ **Flight Booking Flow:** Dynamic searching and booking configuration for flights.
+
+---
 
 ## 📋 Table of Contents
 
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Project Structure](#project-structure)
-- [Test Execution](#test-execution)
-- [Viewing Test Reports](#viewing-test-reports)
-- [Technologies Used](#technologies-used)
+*   [🚀 Features](#-features)
+*   [🛠️ Technologies Used](#-technologies-used)
+*   [💻 Prerequisites](#-prerequisites)
+*   [⚙️ Installation & Setup](#-installation--setup)
+*   [📂 Project Structure](#-project-structure)
+*   [🏃 Running the Tests](#-running-the-tests)
+*   [📊 Viewing Test Reports](#-viewing-test-reports)
+*   [🔒 Best Practices & Security](#-best-practices--security)
 
-## Prerequisites
+---
 
-Before you begin, ensure you have the following installed on your system:
+## 🚀 Features
 
-- **Java 17** or higher
-- **Maven 3.6+** for dependency management
-- **Google Chrome** and/or **Firefox** browsers
-- **IntelliJ IDEA** (or similar IDE) with the following plugins:
-  - TestNG plugin
-  - Cucumber for Java plugin
+*   **Behavior-Driven Development (BDD):** Scenarios written in plain-text Gherkin syntax for business-readable specifications.
+*   **Page Object Model (POM):** Enhances test maintenance and reduces code duplication.
+*   **Automated Driver Management:** Leverages Selenium 4's built-in **Selenium Manager** to dynamically handle binaries for Chrome and Firefox (no external configuration or driver files needed).
+*   **Parameterization & Parallel Readiness:** Configured with TestNG for structured execution and customizable XML suites.
+*   **Comprehensive Reporting:** Automatically generates detailed, interactive HTML reports.
 
-## Installation
+---
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd cucumber-web
-   ```
+## 🛠️ Technologies Used
 
-2. **Open the project in IntelliJ IDEA**
-   - Open IntelliJ IDEA and select "Open"
-   - Navigate to the project directory and click "OK"
+*   **Language:** Java 17 ☕
+*   **Automation Library:** Selenium WebDriver (v4+) 🌐
+*   **BDD Framework:** Cucumber JVM 🥒
+*   **Test Runner:** TestNG 🧪
+*   **Build Tool:** Maven 📦
+*   **Driver Management:** Selenium Manager (Built-in) ⚡
 
-3. **Import Maven dependencies**
-   - Right-click on `pom.xml` → Maven → Reload project
-   - WebDriverManager automatically downloads and manages browser driver executables
+---
 
-## Project Structure
+## 💻 Prerequisites
+
+Before running the project, make sure you have the following installed:
+
+*   **Java JDK 17** or higher
+*   **Apache Maven 3.6+**
+*   **Google Chrome** and/or **Firefox** browsers installed locally
+*   An IDE (e.g., **IntelliJ IDEA**) with the following plugins:
+    *   *Cucumber for Java*
+    *   *Gherkin*
+    *   *TestNG*
+
+---
+
+## ⚙️ Installation & Setup
+
+1.  **Clone the Repository**
+    ```bash
+    git clone <repository-url>
+    cd cucumber-web
+    ```
+
+2.  **Import to your IDE**
+    *   Open your IDE and select **Open/Import**.
+    *   Select the `cucumber-web` directory.
+    *   Allow Maven to automatically import all dependencies declared in [pom.xml](file:///Users/matiastartara/Documents/IdeaProjects/web/cucumber-web/pom.xml).
+
+---
+
+## 📂 Project Structure
 
 ```
 cucumber-web/
 ├── src/
 │   ├── main/java/
-│   │   ├── pages/              # Page Object Model classes
+│   │   ├── pages/              # Page Object Model (POM) classes
 │   │   │   ├── BasePage.java
 │   │   │   ├── HomePage.java
 │   │   │   ├── FlightPage.java
 │   │   │   ├── SignPage.java
 │   │   │   └── NavigationBarPage.java
-│   │   └── utils/              # Utilities and drivers
+│   │   └── utils/              # Driver initialization & configurations
 │   │       └── Driver.java
 │   └── test/java/
-│       ├── steps/              # Step definitions
+│       ├── steps/              # Step definitions (Glue code)
 │       │   ├── BaseStep.java
 │       │   ├── LoginStep.java
 │       │   └── SearchFlightStep.java
 │       ├── test/
-│       │   └── TestRunner.java
+│       │   └── TestRunner.java  # Cucumber Test Runner
 │       └── resources/
-│           └── features/       # Feature files
+│           └── features/       # BDD Gherkin Feature Files
 │               ├── Login.feature
 │               └── SearchFlight.feature
-└── pom.xml                     # Maven configuration
+├── pom.xml                     # Maven dependencies & configurations
+└── README.md                   # Project documentation
 ```
 
-## Test Execution
+---
 
-### Using IntelliJ IDEA
-1. Navigate to `src/test/java/suite/` folder
-2. Right-click on the desired test suite file (`allTests.xml`, `loginTest.xml`, or `searchFlightTest.xml`)
-3. Select **Run** to execute the tests
+## 🏃 Running the Tests
 
-### Using Maven
+### 💡 Option A: Running from Terminal (Recommended)
+
+You can run the entire test suite using Maven:
+
 ```bash
-# Run all tests
+# Run all tests and generate reports
 mvn verify
 
-# Run specific test suite (if configured)
+# Run specific test suites (using TestNG configuration files)
 mvn test -Dsuite=allTests
 ```
 
-## Viewing Test Reports
+### 💡 Option B: Running from IntelliJ IDEA
 
-### HTML Report via Maven
-After running tests with `mvn verify`, the detailed HTML report can be found at:
+1. Expand `src/test/java/suite/` in the Project explorer.
+2. Right-click on any of the XML suite configuration files:
+   *   `allTests.xml`
+   *   `loginTest.xml`
+   *   `searchFlightTest.xml`
+3. Click **Run '<suite-name>.xml'**.
+
+---
+
+## 📊 Viewing Test Reports
+
+### 📑 Cucumber HTML Plugin Report
+After running the tests via terminal (`mvn verify`), an interactive HTML report is generated. You can find it at:
 ```
 target/cucumber-report-html/cucumber-html-reports/All.html
 ```
 
-### Using IntelliJ IDEA
-If you run tests directly from IntelliJ using `allTests.xml`, the report is generated at:
-```
-src/cucumberReport.html
-```
+### 📑 Local Single-Page Report
+If executing tests directly via TestNG in your IDE, the output report is generated in the root directory:
+*   [cucumberReport.html](file:///Users/matiastartara/Documents/IdeaProjects/web/cucumber-web/cucumberReport.html)
 
-## Technologies Used
+---
 
-- **Java 17** - Programming language
-- **Selenium WebDriver** - Web automation tool
-- **Cucumber** - BDD framework
-- **TestNG** - Testing framework
-- **Maven** - Build and dependency management
-- **WebDriverManager** - Automated driver management
+## 🔒 Best Practices & Security
 
-## Notes
+*   **No Hardcoded Secret Credentials:** All scenarios use dummy/sandbox accounts provided by the Guru99 training environment. For actual production environments, secrets should be injected via environment variables or a `.env` file (not checked into Git).
 
-- Ensure all browsers (Chrome and Firefox) are installed on your system
-- WebDriverManager handles driver executable downloads automatically
-- Feature files use Gherkin syntax for readable test scenarios

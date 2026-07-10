@@ -4,7 +4,7 @@
 
 A modern, robust, and comprehensive test automation framework built with **Java**, **Cucumber (BDD)**, and **Selenium WebDriver** for end-to-end testing of web applications. 
 
-This repository is designed using the **Page Object Model (POM)** pattern to demonstrate clean, maintainable, and scalable automation code—perfect for showcasing to recruiters and engineering teams.
+This repository is designed using the **Page Object Model (POM)** pattern to demonstrate clean, maintainable, and scalable automation code.
 
 ---
 

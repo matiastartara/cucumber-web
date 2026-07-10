@@ -154,5 +154,4 @@ If executing tests directly via TestNG in your IDE, the output report is generat
 ## 🔒 Best Practices & Security
 
 *   **No Hardcoded Secret Credentials:** All scenarios use dummy/sandbox accounts provided by the Guru99 training environment. For actual production environments, secrets should be injected via environment variables or a `.env` file (not checked into Git).
-*   **Proper Git Configuration:** The [.gitignore](file:///Users/matiastartara/Documents/IdeaProjects/web/cucumber-web/.gitignore) file is configured to exclude temporary workspace directories (`.idea/`, target files, logs) ensuring a clean repository state.
 
